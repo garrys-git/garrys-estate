@@ -9,11 +9,16 @@ import path from "path";
 
 dotenv.config();
 
-mongoose
+/* mongoose
   .connect(process.env.MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
+  .then(() => console.log("connection to the database successful"))
+  .catch((err) => console.log(err)); */
+
+mongoose
+  .connect(process.env.MONGO)
   .then(() => console.log("connection to the database successful"))
   .catch((err) => console.log(err));
 
@@ -36,7 +41,7 @@ app.use("/api/listing", listingRouter);
 app.use(express.static(path.join(__dirname, "/client/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client","dist","index.html"));
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 app.use((err, req, res, next) => {
