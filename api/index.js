@@ -18,7 +18,8 @@ dotenv.config();
   .catch((err) => console.log(err)); */
 
 mongoose
-  .connect(process.env.MONGO)
+  .connect(process.env.MONGO
+  )
   .then(() => console.log("connection to the database successful"))
   .catch((err) => console.log(err));
 
