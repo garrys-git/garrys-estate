@@ -6,13 +6,15 @@ import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
 
-export default function Home() {
+export default function Home() 
+{
   const [offerListings, setOfferListings] = useState([]);
   const [saleListings, setSaleListings] = useState([]);
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
   console.log(offerListings);
-  useEffect(() => {
+  useEffect(() => 
+  {
     const fetchOfferListings = async () => {
       try {
         const res = await fetch('/api/listing/get?offer=true&limit=4');
@@ -46,6 +48,7 @@ export default function Home() {
     //https://github.com/gsspg/mern_estate.git
     fetchOfferListings();
   }, []);
+  
   return (
     <div>
       {/* top */}
